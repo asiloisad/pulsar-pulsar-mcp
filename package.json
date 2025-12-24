@@ -1,0 +1,59 @@
+{
+  "name": "pulsar-mcp",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "MCP (Model Context Protocol) server for Pulsar editor",
+  "keywords": [
+    "mcp",
+    "pulsar",
+    "editor",
+    "tools"
+  ],
+  "activationHooks": [
+    "core:loaded-shell-environment"
+  ],
+  "repository": "https://github.com/asiloisad/pulsar-mcp",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.100.0 <2.0.0"
+  },
+  "providedServices": {
+    "pulsar-mcp": {
+      "versions": {
+        "1.0.0": "provideService"
+      }
+    }
+  },
+  "consumedServices": {
+    "mcp-tools": {
+      "versions": {
+        "^1.0.0": "consumeMcpTools"
+      }
+    }
+  },
+  "configSchema": {
+    "autoStart": {
+      "title": "Auto Start",
+      "description": "Automatically start the MCP bridge server when Pulsar opens",
+      "type": "boolean",
+      "default": true,
+      "order": 0
+    },
+    "bridgePort": {
+      "title": "Bridge Base Port",
+      "description": "Base port for MCP bridge. Auto-increments for multiple windows (e.g., 3000, 3001, 3002)",
+      "type": "integer",
+      "default": 3000,
+      "minimum": 1024,
+      "maximum": 65535,
+      "order": 1
+    },
+    "debugMode": {
+      "title": "Debug Mode",
+      "description": "Enable debug logging to console for troubleshooting",
+      "type": "boolean",
+      "default": false,
+      "order": 99
+    }
+  }
+}
