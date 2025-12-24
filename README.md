@@ -4,6 +4,7 @@ MCP (Model Context Protocol) server for Pulsar editor - provides editor tools to
 
 ## Features
 
+- MCP protocol version 2025-11-25 with tool annotations support
 - HTTP bridge server running inside Pulsar for direct editor API access
 - Standalone MCP server script for Claude CLI integration
 - Built-in editor tools (get/set editor content, open/save files, manage selections)
@@ -31,32 +32,31 @@ To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/pack
 
 ## Built-in Tools
 
-### Editor Tools
-
 | Tool | Description |
 |------|-------------|
 | `GetActiveEditor` | Get active editor state (path, content, cursor, grammar, modified) |
 | `InsertText` | Insert text at cursor or replace selection |
 | `GetSelections` | Get all selections/cursors with positions and text |
-
-### File Tools
-
-| Tool | Description |
-|------|-------------|
 | `OpenFile` | Open a file in editor with optional position |
 | `SaveFile` | Save a file (active editor or specific path) |
 | `CloseFile` | Close an editor tab |
-
-### Project Tools
-
-| Tool | Description |
-|------|-------------|
 | `GetProjectPaths` | Get project root folders |
 | `AddProjectPath` | Add a folder to project roots |
 
-## Claude CLI Integration
+## MCP Client Integration
 
-Add to your Claude MCP settings (`~/.claude/claude_desktop_config.json`):
+The standalone MCP server (`lib/server.js`) can be used with any MCP-compatible client.
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PULSAR_BRIDGE_PORT` | Port of the HTTP bridge inside Pulsar | `3000` |
+| `PULSAR_BRIDGE_HOST` | Host of the HTTP bridge | `127.0.0.1` |
+
+### Claude CLI / Claude Desktop
+
+Add to your MCP settings (`~/.claude.json` or `~/.claude/claude_desktop_config.json`):
 
 ```json
 {
@@ -91,26 +91,38 @@ Other Pulsar packages can provide additional MCP tools by implementing the `mcp-
 // In your main.js
 provideMcpTools() {
   return {
-    getTools: () => [
-      {
-        name: "MyCustomTool",
-        description: "Description for the AI",
-        inputSchema: {
-          type: "object",
-          properties: {
-            param: { type: "string", description: "Parameter description" }
+    getTools() {
+      return [
+        {
+          name: "MyCustomTool",
+          description: "Description for the AI",
+          inputSchema: {
+            type: "object",
+            properties: {
+              param: { type: "string", description: "Parameter description" }
+            },
+            required: ["param"]
           },
-          required: ["param"]
-        },
-        execute: async (args) => {
-          // Tool implementation
-          return { result: "data" };
+          annotations: { readOnlyHint: true },
+          execute({ param }) {
+            // Tool implementation
+            return { result: "data" };
+          }
         }
-      }
-    ]
+      ];
+    }
   };
 }
 ```
+
+### Tool Annotations
+
+MCP 2025-11-25 supports tool annotations to hint behavior:
+
+| Annotation | Description |
+|------------|-------------|
+| `readOnlyHint` | `true` if tool only reads data, `false` if it modifies state |
+| `destructiveHint` | `true` if tool performs destructive actions (e.g., closing files) |
 
 ## Service API
 
