@@ -37,6 +37,8 @@ To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/pack
 | `GetActiveEditor` | Get active editor state (path, content, cursor, grammar, modified) |
 | `InsertText` | Insert text at cursor or replace selection |
 | `GetSelections` | Get all selections/cursors with positions and text |
+| `SetSelections` | Set multiple selections/cursors at specific positions |
+| `SetTextInRange` | Replace text in a specific buffer range |
 | `OpenFile` | Open a file in editor with optional position |
 | `SaveFile` | Save a file (active editor or specific path) |
 | `CloseFile` | Close an editor tab |
@@ -46,17 +48,6 @@ To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/pack
 ## MCP Client Integration
 
 The standalone MCP server (`lib/server.js`) can be used with any MCP-compatible client.
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `PULSAR_BRIDGE_PORT` | Port of the HTTP bridge inside Pulsar | `3000` |
-| `PULSAR_BRIDGE_HOST` | Host of the HTTP bridge | `127.0.0.1` |
-
-### Claude CLI / Claude Desktop
-
-Add to your MCP settings (`~/.claude.json` or `~/.claude/claude_desktop_config.json`):
 
 ```json
 {
