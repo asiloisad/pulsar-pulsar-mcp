@@ -34,16 +34,35 @@ To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/pack
 
 | Tool | Description |
 |------|-------------|
-| `GetActiveEditor` | Get active editor state (path, content, cursor, grammar, modified) |
-| `InsertText` | Insert text at cursor or replace selection |
+| `GetActiveEditor` | Get editor metadata (path, cursor, grammar, modified, lineCount, charCount) |
+| `ReadText` | Read buffer content, optionally with start/end range |
+| `InsertText` | Insert text at cursor, or replace text in start/end range |
 | `GetSelections` | Get all selections/cursors with positions and text |
 | `SetSelections` | Set multiple selections/cursors at specific positions |
-| `SetTextInRange` | Replace text in a specific buffer range |
 | `OpenFile` | Open a file in editor with optional position |
 | `SaveFile` | Save a file (active editor or specific path) |
 | `CloseFile` | Close an editor tab |
 | `GetProjectPaths` | Get project root folders |
 | `AddProjectPath` | Add a folder to project roots |
+
+### Tool Details
+
+**GetActiveEditor** - Returns metadata only (no content):
+```json
+{ "path": "/file.js", "cursorPosition": {"row": 10, "column": 5}, "grammar": "JavaScript", "modified": false, "lineCount": 100, "charCount": 3000 }
+```
+
+**ReadText** - Read buffer content (includes unsaved changes):
+```javascript
+ReadText()                                    // Full content
+ReadText({start: {row: 0, column: 0}, end: {row: 50, column: 0}})  // Range
+```
+
+**InsertText** - Insert or replace text:
+```javascript
+InsertText({text: "hello"})                   // At cursor
+InsertText({text: "new", start: {...}, end: {...}})  // Replace range
+```
 
 ## MCP Client Integration
 
