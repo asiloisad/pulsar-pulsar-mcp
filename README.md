@@ -81,28 +81,24 @@ Other Pulsar packages can provide additional MCP tools by implementing the `mcp-
 
 // In your main.js
 provideMcpTools() {
-  return {
-    getTools() {
-      return [
-        {
-          name: "MyCustomTool",
-          description: "Description for the AI",
-          inputSchema: {
-            type: "object",
-            properties: {
-              param: { type: "string", description: "Parameter description" }
-            },
-            required: ["param"]
-          },
-          annotations: { readOnlyHint: true },
-          execute({ param }) {
-            // Tool implementation
-            return { result: "data" };
-          }
-        }
-      ];
+  return [
+    {
+      name: "MyCustomTool",
+      description: "Description for the AI",
+      inputSchema: {
+        type: "object",
+        properties: {
+          param: { type: "string", description: "Parameter description" }
+        },
+        required: ["param"]
+      },
+      annotations: { readOnlyHint: true },
+      execute({ param }) {
+        // Tool implementation
+        return { result: "data" };
+      }
     }
-  };
+  ];
 }
 ```
 
