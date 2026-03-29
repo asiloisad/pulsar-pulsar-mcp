@@ -1,6 +1,6 @@
 # pulsar-mcp
 
-MCP (Model Context Protocol) server. Provides editor tools to AI assistants via the MCP protocol.
+Model Context Protocol server, that provides Pulsar editor tools to AI assistants.
 
 ## Features
 
@@ -48,7 +48,7 @@ Commands available in `.pulsar-mcp`:
 
 ## MCP Client Integration
 
-The standalone MCP server (`lib/server.js`) can be used with any MCP-compatible client. The server connects to the Pulsar bridge via `PULSAR_BRIDGE_PORT` (default `3000`). Check the actual port with `pulsar-mcp:status` — it auto-increments when multiple Pulsar windows are open.
+The standalone MCP server (`lib/server.js`) can be used with any MCP-compatible client. The server connects to the Pulsar bridge via `PULSAR_BRIDGE_PORT` (default `3000`). Check the actual port with `pulsar-mcp:status`. It auto-increments when multiple Pulsar windows are open.
 
 ```json
 {
@@ -68,7 +68,7 @@ On Windows, use `%USERPROFILE%\.pulsar\packages\pulsar-mcp\lib\server.js`.
 
 ## Provided Service `pulsar-mcp`
 
-Provides access to the MCP bridge state — port, running status, and server script path. Used by [claude-chat](https://web.pulsar-edit.dev/packages/claude-chat) to auto-connect the MCP server.
+Provides access to the MCP bridge state: port, running status, and server script path. Used by [claude-chat](https://web.pulsar-edit.dev/packages/claude-chat) to auto-connect the MCP server.
 
 In your `package.json`:
 
@@ -146,4 +146,4 @@ module.exports = {
 
 ## Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
