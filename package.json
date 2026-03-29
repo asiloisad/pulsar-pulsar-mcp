@@ -48,9 +48,17 @@
       "maximum": 65535,
       "order": 1
     },
-    "disabledTools": {
-      "title": "Disabled Tools",
-      "description": "List of disabled MCP tool names (managed via toggle-tools command)",
+    "listMode": {
+      "title": "List Mode",
+      "description": "How the tool list is interpreted: blacklist disables listed tools, greenlist enables only listed tools",
+      "type": "string",
+      "enum": ["blacklist", "greenlist"],
+      "default": "blacklist",
+      "order": 97
+    },
+    "toolList": {
+      "title": "Tool List",
+      "description": "MCP tool names interpreted as blacklist or greenlist depending on List Mode (managed via toggle-tools command)",
       "type": "array",
       "default": [
         "CloseFile",
