@@ -1,3 +1,6 @@
+'atom-workspace':
+  'alt-shift-m': 'pulsar-mcp:toggle-tools'
+
 '.pulsar-mcp':
   'alt-enter': 'select-list:toggle-mode'
   'alt-=': 'select-list:enable-all'
