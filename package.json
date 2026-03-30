@@ -1,7 +1,7 @@
 {
   "name": "pulsar-mcp",
   "main": "./lib/main",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Model Context Protocol server, that provides Pulsar editor tools to AI assistants",
   "keywords": [
     "mcp",
@@ -52,7 +52,10 @@
       "title": "List Mode",
       "description": "How the tool list is interpreted: blacklist disables listed tools, greenlist enables only listed tools",
       "type": "string",
-      "enum": ["blacklist", "greenlist"],
+      "enum": [
+        "blacklist",
+        "greenlist"
+      ],
       "default": "blacklist",
       "order": 97
     },
