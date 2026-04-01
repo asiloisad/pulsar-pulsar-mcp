@@ -26,9 +26,9 @@ Commands available in `atom-workspace`:
 
 Commands available in `.pulsar-mcp`:
 
-- `select-list:enable-all`: (`Alt+=`) enable all tools,
-- `select-list:disable-all`: (`Alt+-`) disable all tools,
-- `select-list:reset-defaults`: (`Alt+0`) reset to defaults.
+- `select-list:enable-all`: <kbd>Alt+=</kbd> enable all tools,
+- `select-list:disable-all`: <kbd>Alt+-</kbd> disable all tools,
+- `select-list:reset-defaults`: <kbd>Alt+0</kbd> reset to defaults.
 
 ## Built-in Tools
 
