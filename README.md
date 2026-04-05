@@ -10,6 +10,7 @@ Model Context Protocol server, that provides Pulsar editor tools to AI assistant
 - **Editor tools**: Get/set content, open/save files, manage selections.
 - **Extensible**: Other packages can register tools via `mcp-tools` service.
 - **Toggle tools**: Enable/disable individual tools via select list. Destructive tools disabled by default.
+- **[claude-chat](https://web.pulsar-edit.dev/packages/claude-chat) integration**: Auto-connects the MCP server to each Claude session via the provided service.
 
 ## Installation
 
