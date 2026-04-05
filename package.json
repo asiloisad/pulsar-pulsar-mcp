@@ -1,7 +1,7 @@
 {
   "name": "pulsar-mcp",
   "main": "./lib/main",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Model Context Protocol server, that provides Pulsar editor tools to AI assistants",
   "keywords": [
     "mcp",
