@@ -39,7 +39,7 @@ Commands available in `.pulsar-mcp`:
 | `GetOpenEditors` | Get metadata for all open text editors | Enabled |
 | `ReadText` | Read active editor content with line pagination (use agent's file tools for other files) | Enabled |
 | `WriteText` | Write text at cursor or replace range in active editor (use agent's file tools for other files) | Enabled |
-| `OpenFile` | Open a file in editor with optional position | Enabled |
+| `OpenFile` | Open an existing file in editor with optional position (`create=true` allows new files) | Enabled |
 | `SaveFile` | Save a file (active editor or specific path) | Enabled |
 | `GetSelections` | Get all selections/cursors with positions and text from active editor | Enabled |
 | `SetSelections` | Set multiple selections/cursors at specific positions in active editor | Enabled |
