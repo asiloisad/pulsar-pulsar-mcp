@@ -36,6 +36,7 @@ Commands available in `.pulsar-mcp`:
 | Tool | Description | Default |
 | --- | --- | --- |
 | `GetActiveEditor` | Get editor metadata (path, grammar, modified, lineCount) | Enabled |
+| `GetOpenEditors` | Get metadata for all open text editors | Enabled |
 | `ReadText` | Read active editor content with line pagination (use agent's file tools for other files) | Enabled |
 | `WriteText` | Write text at cursor or replace range in active editor (use agent's file tools for other files) | Enabled |
 | `OpenFile` | Open a file in editor with optional position | Enabled |
