@@ -10,7 +10,7 @@ Model Context Protocol server, that provides Pulsar editor tools to AI assistant
 - **Editor tools**: Get/set content, open/save files, manage selections.
 - **Extensible**: Other packages can register tools via `mcp-tools` service.
 - **Toggle tools**: Enable/disable individual tools via select list. Destructive tools disabled by default.
-- **[claude-chat](https://web.pulsar-edit.dev/packages/claude-chat) integration**: Auto-connects the MCP server to each Claude session via the provided service.
+- **[claude-chat](https://github.com/asiloisad/pulsar-claude-chat) integration**: Auto-connects the MCP server to each Claude session via the provided service.
 
 ## Installation
 
@@ -27,9 +27,9 @@ Commands available in `atom-workspace`:
 
 Commands available in `.pulsar-mcp`:
 
-- `select-list:enable-all`: <kbd>Alt+=</kbd> enable all tools,
-- `select-list:disable-all`: <kbd>Alt+-</kbd> disable all tools,
-- `select-list:reset-defaults`: <kbd>Alt+0</kbd> reset to defaults.
+- `select-list:enable-all`: enable all tools,
+- `select-list:disable-all`: disable all tools,
+- `select-list:reset-defaults`: reset to defaults.
 
 ## Built-in Tools
 
@@ -86,7 +86,7 @@ On Windows, use `"%USERPROFILE%\.pulsar\packages\pulsar-mcp\lib\server.js"`.
 
 ## Provided Service `pulsar-mcp`
 
-Provides access to the MCP bridge state: port, running status, and server script path. Used by [claude-chat](https://web.pulsar-edit.dev/packages/claude-chat) to auto-connect the MCP server.
+Provides access to the MCP bridge state: port, running status, and server script path. Used by [claude-chat](https://github.com/asiloisad/pulsar-claude-chat) to auto-connect the MCP server.
 
 In your `package.json`:
 
