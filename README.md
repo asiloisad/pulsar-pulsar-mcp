@@ -14,7 +14,7 @@ Model Context Protocol server, that provides Pulsar editor tools to AI assistant
 
 ## Installation
 
-To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/packages/pulsar-mcp) in the Install pane of the Pulsar settings or run `ppm install pulsar-mcp`. Alternatively, you can run `ppm install asiloisad/pulsar-pulsar-mcp` to install a package directly from the GitHub repository.
+To install `pulsar-mcp` search for [pulsar-mcp](https://web.pulsar-edit.dev/packages/pulsar-mcp) in the Install pane of the Pulsar settings or run `ppm install pulsar-mcp`. Alternatively, you can run `ppm install asiloisad-pulsar/pulsar-mcp` to install a package directly from the GitHub repository.
 
 ## Commands
 
